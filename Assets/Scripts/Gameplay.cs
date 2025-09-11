@@ -46,6 +46,7 @@ public class Gameplay : MonoBehaviour
         {
             player.hp = 0;
         }
+        //'J.ง่วงวงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงง
 
         Debug.Log($"Player HP reduced! Current HP: {player.hp}");
     }
