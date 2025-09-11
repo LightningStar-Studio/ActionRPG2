@@ -50,3 +50,5 @@ public class Gameplay : MonoBehaviour
         Debug.Log($"Player HP reduced! Current HP: {player.hp}");
     }
 }
+
+// 1234567899876543210
