@@ -42,3 +42,6 @@ public class HealthManager : MonoBehaviour
 
     }
 }
+
+//barbie as the princessand the pauper
+// 9/10
