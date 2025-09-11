@@ -28,7 +28,7 @@ public class SlimeMovement : MonoBehaviour
         }
         else
         {
-            // สุ่มทิศทางใหม่
+            // รรรจรยทร”รยทร’ยงรฃรรรจ
             moveDirection = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
             moveTimer = moveTime;
             waitTimer = waitTime;

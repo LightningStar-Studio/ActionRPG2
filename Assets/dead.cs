@@ -35,6 +35,7 @@ public class PlayerRespawn : MonoBehaviour
             Respawn();
         }
     }
+    //โค้ดใช้การไม่ได้เพราะอะไรก็ไม่รู้
 
     private void Respawn()
     {

@@ -46,6 +46,7 @@ public class Gameplay : MonoBehaviour
         {
             player.hp = 0;
         }
+        //'J.ง่วงวงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงง
 
         Debug.Log($"Player HP reduced! Current HP: {player.hp}");
     }
@@ -53,3 +54,6 @@ public class Gameplay : MonoBehaviour
     //RIN HASHIMA
     //88888
 }
+
+// 1234567899876543210
+// hi
