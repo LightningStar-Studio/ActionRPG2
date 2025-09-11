@@ -52,6 +52,7 @@ public class Gameplay : MonoBehaviour
     }
     //RIN test
     //RIN HASHIMA
+    //88888
 }
 
 // 1234567899876543210
