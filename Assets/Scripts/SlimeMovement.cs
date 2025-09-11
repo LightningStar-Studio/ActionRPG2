@@ -1,37 +1,66 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class SlimeMovement : MonoBehaviour
+public class SlimeChasePlayer : MonoBehaviour
 {
-    public float moveSpeed = 1.5f;
-    public float moveTime = 2f;
-    public float waitTime = 1.5f;
+    NavMeshAgent agent;
+    public GameObject player;
 
-    private float moveTimer;
-    private float waitTimer;
-    private Vector3 moveDirection;
+    public float stopDistance = 1f;
+    public float detectionRange = 10f;
 
-    private void Start()
+    Animator anim;
+    bool isPlayerInRange = false;
+    bool hasReachePlayer = false;
+
+    void Start()
     {
-        waitTimer = waitTime;
+        agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (moveTimer > 0)
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        isPlayerInRange = distance <= detectionRange;
+        if (isPlayerInRange)
         {
-            transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
-            moveTimer -= Time.deltaTime;
-        }
-        else if (waitTimer > 0)
-        {
-            waitTimer -= Time.deltaTime;
+            if (distance <= stopDistance)
+            {
+                StopMoving();
+                hasReachePlayer = true;
+            }
+            else
+            {
+                MoveToPlayer();
+                hasReachePlayer = false;
+            }
         }
         else
         {
-            // ÊØèÁ·ÔÈ·Ò§ãËÁè
-            moveDirection = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
-            moveTimer = moveTime;
-            waitTimer = waitTime;
+            StopMoving();
         }
+        UpdateAnimation();
+    }
+    void MoveToPlayer()
+    {
+        if (agent.isActiveAndEnabled)
+        {
+            agent.SetDestination(player.transform.position);
+            hasReachePlayer = false;
+        }
+    }
+    void StopMoving()
+    {
+        if (agent.isActiveAndEnabled)
+        {
+            agent.ResetPath();
+            hasReachePlayer = true;
+        }
+    }
+    void UpdateAnimation()
+    {
+        anim.SetBool("Attack", !hasReachePlayer);
     }
 }
