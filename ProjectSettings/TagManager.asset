@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - FallZone
+  - Sword
   layers:
   - Default
   - TransparentFX
